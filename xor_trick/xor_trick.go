@@ -2,7 +2,10 @@
 // https://florian.github.io//xor-trick/
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 
 func buildSet(n int) map[uint]any {
@@ -54,6 +57,9 @@ func main() {
 			break
 		}
 		i++
+		if i >= uint(math.Pow(2, 32)) {
+			break
+		}
 	}
 	partitionAofAllNumbers := partition(allNumbers, leastSignificantBit)
 	partitionAofNumbersGiven := partition(numbersGiven, leastSignificantBit)
